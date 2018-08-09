@@ -4,23 +4,22 @@
 Kelsey Landon and Ramiro Ochoa
 Group #14
 
+![Image](heatmap)
 
 ### Motivation
-
+**Bold**
+_Italic_ 
+`Code` text
 ```markdown
 Syntax highlighted code block
 
+```
+
 
 ### Problem Statement
-
-
 1. Numbered
 2. List
 
-**Bold** and 
-_Italic_ and `Code` text
+[Link](heatmap.png)
 
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+_For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/)_
