@@ -1,4 +1,3 @@
-## Welcome to GitHub Pages
 
 ## CS109 Twitter Final Project
 Kelsey Landon and Ramiro Ochoa
