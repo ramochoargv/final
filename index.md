@@ -4,7 +4,6 @@
 Kelsey Landon and Ramiro Ochoa
 Group #14
 
-![Image](images/heatmap.png)
 
 ### Motivation
 **Bold**
@@ -20,6 +19,9 @@ Syntax highlighted code block
 1. Numbered
 2. List
 
+
+
+![Image](images/heatmap.png)
 [Link](images/heatmap.png)
 
 _For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/)_
