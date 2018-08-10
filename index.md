@@ -5,8 +5,8 @@ title: Overview
 
 
 ## CS109 Twitter Final Project
-Kelsey Landon and Ramiro Ochoa
-Group #14
+#Kelsey Landon and Ramiro Ochoa
+#Group #14
 
 
 ### Motivation
