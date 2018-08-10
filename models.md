@@ -11,3 +11,4 @@ title: Models
 ### READING DATA
 
 ```
+![Image](images/adaboost_scores.png)
