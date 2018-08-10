@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Literature Reviw Related Work
+title: Literature Review
 ---
-## Related Works
+## Literature Review and Related Works
 
