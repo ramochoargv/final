@@ -96,6 +96,19 @@ We took a look at what parameters the model was deeming as important. Followers 
 
 ### 3) Ada Boost
 
+Ada Boost performed better than the previous two models, but based on the baseline we are working with, it does not seem good enough.
+
+```python
+parameters = {'learning_rate': [.05,.07,.85]}
+boost_model = GridSearchCV(AdaBoostClassifier(base_estimator=
+    DecisionTreeClassifier(max_depth=3), n_estimators=100),param_grid = 
+    parameters, cv=kfold).fit(X_train, y_train)
+```
+Boost Model Train Accuracy: 0.992
+Boost Model Tune Accuracy: 0.971
+
+We analyzed our number of iterations with the chart below, in which you can see that the test score increases until around 25 iteration, but then flattens out. We ended up maxing out the score on the tuning set at 89 iterations.
+
 ![Image](images/AdaBoost_Iterations.png)
 
 ![Image](images/adaboost_scores.png)
