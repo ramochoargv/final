@@ -34,11 +34,11 @@ In addition, we converted all created dates to date types in order to accommodat
 
 We branched out and tried some calculations that appeared interesting in our preliminary EDA. First, the count of retweets a user has divided by the number of distinct users that user is retweeting. In our preliminary EDA, we found that in general, the more a user retweets, the more distinct users those tweets originate from. These expected points are represented by the lighter dots where the retweet-to-original-user ratio is near one. However, some accounts stand out because they only ever retweet from one original account, even as their number of retweets increase. This is shown by the y=x line of darker points. This line is clearly diverging from the rest of the data.
 
-[Link](images/Tweets per Tweet-Originating User.png)
+(images/Tweets per Tweet-Originating User.png)
 
 We looked at tweets by account age, which generally increased positively together as you’d expect. When we looked at the same chart by the total number of retweets a user has of its tweets, we saw some outliers stand out. Therefore we added a feature defined as: a users' tweets' total retweets divided by account age (in days). This can be seen on the chart below, in which each dot represents a user. You can see one user whose account is less that 500 days old, but has had his/her tweets retweeted over 8 million times.
 
-[Link](images/Total Retweets of a User's Tweets by Account Age.png)
+(images/Total Retweets of a User's Tweets by Account Age.png)
 
 ### 3) Further Data Manipulation 
 
