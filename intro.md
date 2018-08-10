@@ -26,6 +26,8 @@ Syntax highlighted code block
 
 This data is one row per tweet, though objects such as users, retweets, and quote tweets are nested within a tweet as a dictionary. This is the biggest challenge of this data. It is naturally nested in structure, since a tweet has many objects, and can originate from a retweet, which also has many objects. Most of the data preparation time was spent flattening out the data. 
 
+We also cleaned the tweets for special characters in order to create a good sentiment analysis.
+
 ### 2) Additional Feature Engineering
 
 For many elements, we created binary columns to aid our analysis. These include “Has Link”, "Has Hashtag", “Is Retweet”, "Is Quote Tweet", and "Has JPEG". We also add the percent of total calculations for each of these (e.g., "Retweet Percent" is the count of retweets over all tweets).
@@ -43,3 +45,5 @@ We looked at tweets by account age, which generally increased positively togethe
 ![Image](images/Total Retweets of a User's Tweets by Account Age.png)
 
 ### 4) Standardization
+
+We did standardize the data, but we found it made little difference in our models.
