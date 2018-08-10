@@ -1,7 +1,7 @@
 ---
+layout: post
 title: Overview:
-notebook: bot_analysis.ipynb
-nav_include: 1
+
 ---
 
 
