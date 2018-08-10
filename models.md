@@ -13,7 +13,7 @@ title: Models
 ```
 ![Image](images/adaboost_scores.png)
 
-### 1) PCA Analysis
+### 2) PCA Analysis
 
 We reviewd our data using PCA analysis with two dimensions. These first two dimensions explain 47.1% of the variance in our data. There are interesting sections, but the bots and humans are competely inter-mixed.
 
