@@ -8,8 +8,13 @@ title: Models
 ### Reading and Cleaning Data
 
 ```python
-### READING DATA
+#clean tweet
+df['cleantweet'] = df['text'].copy()
+df['cleantweet'] = df['cleantweet'].replace(r'\n',' ', regex=True)
+df['cleantweet'].replace(to_replace=r"(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)", value='',inplace=True,regex=True)
 
+#add sentiment
+df['sentiment'] = [TextBlob(str(row)).sentiment.polarity for row in df['cleantweet']]
 ```
 ![Image](images/adaboost_scores.png)
 
