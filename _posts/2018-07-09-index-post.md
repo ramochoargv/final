@@ -1,9 +1,7 @@
 ---
 layout: post
 title: Overview:
-
 ---
-
 
 
 ## CS109 Twitter Final Project
