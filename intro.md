@@ -38,14 +38,18 @@ We also examined tweets per minute, which we think will be an especially good pr
 #### Hashtags
 We analyzed hashtag topics and topic diversity. Below is a chart showing our top hashtags by sentiment. We see that overall the top hashtags have more positive tweets than negative. We did not find any abnormalities regarding number of hashtags per tweet; there were at max 10, sloping down to 4 or less pretty quickly, and the average was 1.36.
 
+
 ![Image](images/Top_Hashtags_by_Sentiment.png)
+
 
 #### Text Content
 In our data approximately 26% of tweets contained links, and of those tweets, 74% contained pictures. Tweets that contained links were predominantly retweets.
 
 For the data overall, 52% of tweets were neutral, 33% were positive, and 15% were negative. Below is a distribution of sentiments across our data set, colored by whether the tweet was an original tweet or a retweet.
 
+
 ![Image](images/Sentiment_Distribution.png)
+
 
 ####  Tweet Networks
 
@@ -65,11 +69,15 @@ In addition, we converted all created dates to date types in order to accommodat
 
 We branched out and tried some calculations that appeared interesting in our preliminary EDA. First, the count of retweets a user has divided by the number of distinct users that user is retweeting. In our preliminary EDA, we found that in general, the more a user retweets, the more distinct users those tweets originate from. These expected points are represented by the lighter dots where the retweet-to-original-user ratio is near one. However, some accounts stand out because they only ever retweet from one original account, even as their number of retweets increase. This is shown by the y=x line of darker points. This line is clearly diverging from the rest of the data.
 
-![Image](images/Tweets per Tweet-Originating User.png)
+
+![Image](images/Tweets_per_Tweet-Originating_User.png)
+
 
 We looked at tweets by account age, which generally increased positively together as you’d expect. When we looked at the same chart by the total number of retweets a user has of its tweets, we saw some outliers stand out. Therefore we added a feature defined as: a users' tweets' total retweets divided by account age (in days). This can be seen on the chart below, in which each dot represents a user. You can see one user whose account is less that 500 days old, but has had his/her tweets retweeted over 8 million times.
 
-![Image](images/Total Retweets of a User's Tweets by Account Age.png)
+
+![Image](images/Total_Retweets_by_Account_Age.png)
+
 
 ### 6) Standardization
 
