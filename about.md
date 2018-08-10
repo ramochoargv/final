@@ -1,8 +1,16 @@
 ---
 layout: page
-title: About
+title: Introduction and EDA
 ---
 
-## About
+## 1. Introduction and Description of Data
 
+### 1) Experiment Details
 
+### 2) Description of Raw Data
+
+### 3) Additional Feature Engineering
+
+### 4) Further Data Manipulation 
+
+### 5) Standardization
