@@ -4,7 +4,7 @@ title: Models
 ---
 **Model Preparation and Fitting**
 
-## 0. Data Preparation
+## Data Preparation
 ### Reading and Cleaning Data
 
 #### Cleaning Tweets
@@ -57,9 +57,46 @@ We reviewd our data using PCA analysis with two dimensions. These first two dime
 ### Baseline
 Based on the users we gathered, 2.3% were bots. Our models could guess human 100% of the time and still be 97.7% correct.
 
+## Models
+
+Our models will attempt to overcome the problem of our baseline--this data contains very rare successes.
+
 ### 1) Logistic Regression
+
+We tried this model three different ways, with our orginal design matrix, with a standarized design matrix, and with a biased data set to try to offset the rare-success problem, but it never improved.
+
+```python
+kfold = KFold(5, random_state=42, shuffle=True)
+Cs = [.0001, .001, .01, .1, 1, 10, 100, 1000, 10000]
+
+log_model = LogisticRegressionCV(Cs=Cs, cv=kfold, penalty='l2').fit(X_train, y_train)
+```
+
+Logistic Model Train Accuracy: 0.958
+Logistic Model Tune Accuracy: 0.965
+
 ### 2) Random Forest
+
+The random forest model worked equally as well as the logistic regression. Thus far it seems like these models are for all intents and purposes, always guessing human.
+
+```python
+parameters = {'max_depth': range(2,6), 'n_estimators': range(1,15)}
+RF_model = GridSearchCV(RandomForestClassifier(), 
+                param_grid=parameters, cv=kfold).fit(X_train, y_train)
+
+print("Best Parameters = {0}".format(RF_model.best_params_))
+```
+Random Forest Model Train Accuracy: 0.958
+Random Forest Model Tune Accuracy: 0.965
+
+We took a look at what parameters the model was deeming as important. Followers and favorites type fields were expected. It was interesting that account age was so important. Most surprisingly, this chart brought "contributers_enabled" to our attention. The twitter api documentation defines this as: "Indicates that the user has an account with “contributor mode” enabled, allowing for Tweets issued by the user to be co-authored by another account. Rarely true (this is a legacy field)."
+
+![Image](images/RF_Importance.png)
+
+
 ### 3) Ada Boost
+
+![Image](images/AdaBoost_Iterations.png)
 
 ![Image](images/adaboost_scores.png)
 ### 4) Ensemble
