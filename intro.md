@@ -11,8 +11,6 @@ We took our sampling of tweets and compiled the most recent 20 tweets for all us
 
 We then retrieved a botornot score from the botometer api for our 1,000 users.
 
-![Image](images/heatmap.png)
-[Link](images/heatmap.png)
 
 **Bold**
 _Italic_ 
@@ -27,6 +25,11 @@ Syntax highlighted code block
 This data is one row per tweet, though objects such as users, retweets, and quote tweets are nested within a tweet as a dictionary. This is the biggest challenge of this data. It is naturally nested in structure, since a tweet has many objects, and can originate from a retweet, which also has many objects. Most of the data preparation time was spent flattening out the data. 
 
 We also cleaned the tweets for special characters in order to create a good sentiment analysis.
+
+A heatmap was produced from our dataframe variables showing spearman correlations between known bot and non bot samples.  Many strong correlations were found. This can especially be seen between favorites_count and follower_count. Other predictors also have very strong negative correlations with the exception of listed_count. 
+
+![Image](images/heatmap.png)
+[Link](images/heatmap.png)
 
 ### 3) Inital Data Analysis
 
