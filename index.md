@@ -8,7 +8,7 @@ title: Overview
 
 
 ### Motivation
-Bots can be used positively, to automate help and news services; however, they can also be used negatively, to spread misinformation. Your personal opinion of bots is probably derived from experience or anecdotal evidence. Going into this project, we tried to remain unbiased by our personal assumptions of how bots are being used in the fast-paced world of social networks. We were curious if we could deduce goals or intentions and determine how effective a bot curretnly is at working toward that goal.
+Bots can be used positively, to automate help and news services; however, they can also be used negatively, to spread misinformation. Your personal opinion of bots is probably derived from experience or anecdotal evidence. Going into this project, we tried to remain unbiased by our personal assumptions of how bots are being used in the fast-paced world of social networks. We were curious if we could deduce goals or intentions and determine how effective a bot currently is at working toward that goal.
 
 
 
