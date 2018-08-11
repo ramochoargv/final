@@ -5,7 +5,7 @@ title: Results and Conclusion
 
 ## 1. Summary
 
-We analyzed our data, identified features, and engineered features in order to predict bots. We found which features were most important and fit several different types of models. Those models predicted bots correctly approximately 97% percent of time.
+We analyzed our data, identified features, and engineered features in order to predict bots. We found which features were most important and fit several different types of models. Those models predicted bots correctly approximately 97% percent of time. The Ada Boost model had the highest accuracy score on the tuning set.
 
 We were able to analyze sentiments, hashtags, and topics, but we were not able to logically group those into high-level interpretable topics. We were however able to integrate these scores, counts, and popularity percentages into our model. We were not able to discern diversity of location due to the sparsity of the data.
 
