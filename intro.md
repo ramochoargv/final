@@ -32,7 +32,7 @@ We also examined tweets per minute, which we think will be an especially good pr
 A scatter matrix was used to view the data for collinearity. 
 
 ![Image](images/scatter_matrix.png)
-
+[Link](images/scatter_matrix.png)
 
 
 #### Hashtags
