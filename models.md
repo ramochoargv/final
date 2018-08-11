@@ -124,6 +124,9 @@ Our largest models contained the per-user features below. We counted on regulari
                                                     })
 ```
 
+### Train - Test Split
+We split the data into training and testing data 80%/20%. We then split the training data again on an 80%/20% split in order to create a tuning set we could use for an ensemble model.
+
 ### PCA Analysis
 
 We reviewed our data using PCA analysis with two dimensions. These first two dimensions explain 47.1% of the variance in our data. There are interesting sections, but the bots and humans are completely inter-mixed.
