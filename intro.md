@@ -11,7 +11,7 @@ We took our sampling of tweets and compiled the most recent 20 tweets for all us
 
 We then retrieved a botornot score from the botometer api for our 1,000 users.
 
-### 2) Description of Raw Data
+### 1) Description of Raw Data
 
 This data is one row per tweet, though objects such as users, retweets, and quote tweets are nested within a tweet as a dictionary. This is the biggest challenge of this data. It is naturally nested in structure, since a tweet has many objects, and can originate from a retweet, which also has many objects. Most of the data preparation time was spent flattening out the data. 
 
@@ -22,7 +22,7 @@ A heatmap was produced from our dataframe variables showing spearman correlation
 ![Image](images/heatmap.png)
 [Link](images/heatmap.png)
 
-### 3) Inital Data Analysis
+### 2) Inital Data Analysis
 
 #### Tweets
 We analyzed tweet and retweet quantity, frequency and timing. We looked the status count for a user on a per day basis (based on the age of the account in days). Most users were between 0 and 200, but there were some obvious outliers, with one extreme user who had 1200 per day.
@@ -54,7 +54,7 @@ It was easy to determine the tweet origin, since the original tweet information 
 Standardized location data was generally sparse. A user has location on their profile, but it is free-form text entry. Each tweet can be at a "place", but most tweets have no location data. Only 4% of bot tweets and 10% of bot users had location-type data. For humans it was 2.3% of tweets and 7.2% of users. This negated our ability to use location to judge impact of bot tweets.
 
 
-### 4) Additional Feature Engineering
+### 3) Additional Feature Engineering
 
 For many elements, we created binary columns to aid our analysis. These include “Has Link”, "Has Hashtag", “Is Retweet”, "Is Quote Tweet", and "Has JPEG". We also add the percent of total calculations for each of these (e.g., "Retweet Percent" is the count of retweets over all tweets).
 
@@ -71,7 +71,7 @@ We looked at tweets by account age, which generally increased positively togethe
 
 ![Image](images/Total_Retweets_by_Account_Age.png)
 
-### 5) Further Data Manipulation 
+### 4) Further Data Manipulation 
 
 #### Hashtag Tranformation
 
@@ -161,6 +161,6 @@ Below are some sample of the topics
 Unfortunately these don't immediately help us analyze the data. In order to do that we would need to relate these topics to a type of master dictionary in hopes of deducing an overall high-level topic, for example "politics" or "dating" would be good high-level topics.
 
 
-### 6) Standardization
+### 5) Standardization
 
 We did standardize the data, but we found it made little difference in our models.
