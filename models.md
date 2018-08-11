@@ -138,7 +138,7 @@ Based on the users we gathered, 2.3% were bots. Our models could guess human 100
 
 Our models will attempt to overcome the problem of our baseline--this data contains very rare successes.
 
-### 1) Logistic Regression
+### 0) Logistic Regression
 
 We tried this model three different ways, with our orginal design matrix, with a standarized design matrix, and with a biased data set to try to offset the rare-success problem, but it never improved.
 
