@@ -7,7 +7,7 @@ title: Introduction and EDA
 
 We used the search function of the Twitter API to create a comprehensive dataset of tweet samplings, which we save to a PostgreSQL database. 
 
-We took our sampling of tweets and compiled the most recent 20 tweets for all users. Having more data from each user allowed us to initally have better analytics for user-specific behavior (e.g., what percent of a user’s tweets are retweets). That data set ended up being quite large, so we chose the tweets of 1,000 users for our data set.
+We took our sampling of tweets and compiled the most recent 20 tweets for all users. Having more data from each user allowed us to initially have better analytics for user-specific behavior (e.g., what percent of a user’s tweets are retweets). That data set ended up being quite large, so we chose the tweets of 1,000 users for our data set.
 
 We then retrieved a botornot score from the botometer api for our 1,000 users.
 
@@ -64,7 +64,7 @@ Standardized location data was generally sparse. A user has location on their pr
 
 For many elements, we created binary columns to aid our analysis. These include “Has Link”, "Has Hashtag", “Is Retweet”, "Is Quote Tweet", and "Has JPEG". We also add the percent of total calculations for each of these (e.g., "Retweet Percent" is the count of retweets over all tweets).
 
-In addition, we converted all created dates to date types in order to accommodate duration logic. With these date we create an "Account Age" column, and also a "Tweet Life Days" column, which is the duration between the create of the orignal tweet (the retweet object's created date) and the current tweet.
+In addition, we converted all created dates to date types in order to accommodate duration logic. With these dates we created an "Account Age" column, and also a "Tweet Life Days" column, which is the duration between the create of the original tweet (the retweet object's created date) and the current tweet.
 
 We branched out and tried some calculations that appeared interesting in our preliminary EDA. First, the count of retweets a user has divided by the number of distinct users that user is retweeting. In our preliminary EDA, we found that in general, the more a user retweets, the more distinct users those tweets originate from. These expected points are represented by the lighter dots where the retweet-to-original-user ratio is near one. However, some accounts stand out because they only ever retweet from one original account, even as their number of retweets increase. This is shown by the y=x line of darker points. This line is clearly diverging from the rest of the data.
 
