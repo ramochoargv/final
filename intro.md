@@ -60,7 +60,8 @@ It was easy to determine the tweet origin, since the original tweet information 
 
 #### Location
 
-Standardized location data was generally sparse. A user has location on their profile, but it is free-form text entry. Each tweet can be at a "place", but most tweets have no location data.
+Standardized location data was generally sparse. A user has location on their profile, but it is free-form text entry. Each tweet can be at a "place", but most tweets have no location data. Only 4% of bot tweets and 10% of bot users had location-type data. For humans it was 2.3% of tweets and 7.2% of users. This negated our ability to use location to judge impact of bot tweets.
+
 
 ### 4) Additional Feature Engineering
 
@@ -116,6 +117,41 @@ Hashtags were a problem because they are at a lower grain than even the tweet da
     #aggregate all hashtags for a user, average will result in a weighted average of hashtag stats
     user_hash_sum = hashtags_melt.groupby('user_id').agg({'mentions': np.mean, 
                                         'hash_sentiment': np.mean,'hash_percent': np.mean})
+```
+#### Topic Modeling
+
+Using the code below we attempted to model topics for both bots and humans.
+
+```python
+def getmatrix(documents: pd.Series):
+    '''vectorizes documents via NMF and LDA and returns 
+    the model and feature names for each'''
+    
+    no_features = 1000
+    
+    #NMF
+    tfidf_vectorizer = TfidfVectorizer(max_df=0.95, min_df=2, max_features=no_features, stop_words='english')
+    tfidf = tfidf_vectorizer.fit_transform(documents)
+    tfidf_feature_names = tfidf_vectorizer.get_feature_names()
+
+    #LDA
+    tf_vectorizer = CountVectorizer(max_df=0.95, min_df=2, max_features=no_features, stop_words='english')
+    tf = tf_vectorizer.fit_transform(documents)
+    tf_feature_names = tf_vectorizer.get_feature_names()
+    
+    return tfidf, tfidf_feature_names, tf, tf_feature_names
+    
+no_topics = 50
+
+tfidf_known, tfidf_feature_names_known, tf_known, tf_feature_names_known = getmatrix(documents_known)
+
+#NMF
+nmf = NMF(n_components=no_topics, random_state=1, alpha=.1, 
+          l1_ratio=.5, init='nndsvd').fit(tfidf_known)
+
+#LDA
+lda = LatentDirichletAllocation(n_topics=no_topics, max_iter=5, 
+            learning_method='online', learning_offset=50.,random_state=0).fit(tf_known)
 ```
 
 ### 6) Standardization
