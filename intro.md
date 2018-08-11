@@ -81,7 +81,7 @@ We looked at tweets by account age, which generally increased positively togethe
 
 #### Hashtag Transformation
 
-Hashtags were a problem because they are at a lower grain than even the tweet data. We needed a way to summarize hashtag activity by users. The hashtag object came in as many columns, which we unpivoted (using melt) down to a single column. First by user id, and then second by just the hashtag itself. In doing this we were able to get a hashtag count, the hashtag sentiment, and a hashtag percent popularity (hashtag count divided by count of all hashtags) on a per-user basis. By averaging these in our design matrix, we inherentely created a weighted average hashtag metrics that express how often a user is using hashtags and how popular the hashtags s/he is using are.
+Hashtags were a problem because they are at a lower grain than even the tweet data. We needed a way to summarize hashtag activity by users. The hashtag object came in as many columns, which we unpivoted (using melt) down to a single column. First by user id, and then second by just the hashtag itself. In doing this we were able to get a hashtag count, the hashtag sentiment, and a hashtag percent popularity (hashtag count divided by count of all hashtags) on a per-user basis. By averaging these in our design matrix, we inherently  created a weighted average hashtag metrics that express how often a user is using hashtags and how popular the hashtags s/he is using are.
 
 ```python
 
@@ -172,7 +172,7 @@ Below are some sample of the topics
 ##### Human Topics
 ![Image](images/Human_Topics.PNG)
 
-Unfortunately these don't immediately help us analyze the data. In order to do that we would need to relate these topics to a type of master dictionary in hopes of deducing an overall high-level topic, for example "politics" or "dating" would be good high-level topics.
+Unfortunately, these don't immediately help us analyze the data. In order to do that we would need to relate these topics to a type of master dictionary in hopes of deducing an overall high-level topic, for example "politics" or "dating" would be good high-level topics.
 
 
 ### 5) Standardization
