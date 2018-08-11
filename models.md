@@ -70,7 +70,59 @@ place = data['place'].apply(pd.Series)
 coordinates = data['coordinates'].apply(pd.Series)
 
 ```
+Our largest models contained the following per-user featuers:
 
+```python
+#group all columns by user to get one row per user
+    user_summary = data.groupby('user_id').agg({'id': 'count',
+                                                    'followers_count': np.max,
+                                                    'friends_count': np.max,
+                                                    'listed_count': np.max,
+                                                    'favourites_count': np.max,
+                                                    'protected': np.max,
+                                                    'location': pd.Series.nunique,
+                                                    'geo_enabled': np.max,
+                                                    'verified': np.max,
+                                                    'statuses_count': np.max,
+                                                    'user_lang': pd.Series.nunique,
+                                                    'verified': np.max,
+                                                    'statuses_count': np.max, 
+                                                    'lang': pd.Series.nunique,
+                                                    'contributors_enabled': np.max, 
+                                                    'is_translator': np.max, 
+                                                    'is_translation_enabled': np.max,
+                                                    'has_extended_profile': np.max, 
+                                                    'default_profile': np.max, 
+                                                    'following': np.max,
+                                                    'follow_request_sent': np.max, 
+                                                    'notifications': np.max, 
+                                                    'english': np.max,
+                                                    'universal': np.max, 
+                                                    'account_age': np.max,
+                                                    'favorite_count': np.sum, 
+                                                    'favorited': np.sum,
+                                                    'geo':pd.Series.nunique, 
+                                                    'is_quote_status': np.sum, 
+                                                    'lang':pd.Series.nunique, 
+                                                    'possibly_sensitive': np.sum, 
+                                                    'retweet_count': np.sum, 
+                                                    'retweeted': np.sum, 
+                                                    'source': pd.Series.nunique,
+                                                    'truncated': np.sum, 
+                                                    'sentiment': np.mean,
+                                                    'tweet_life_days': np.mean,
+                                                    'tweet_life_days': np.max,
+                                                    'tweet_life_days': np.min,
+                                                    'is_retweet': np.sum,
+                                                    'is_quote': np.sum, 
+                                                    'is_jpeg': np.sum,
+                                                    'has_hashtag': np.sum,
+                                                    'hashtag_count': np.mean,
+                                                    'q_user_id': pd.Series.nunique,
+                                                    'r_user_id': pd.Series.nunique,
+                                                    'has_url': np.sum
+                                                    })
+```
 
 ### PCA Analysis
 
