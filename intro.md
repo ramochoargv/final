@@ -113,7 +113,7 @@ Hashtags were a problem because they are at a lower grain than even the tweet da
 Below is a list of the hashtags most used by bots:
 
 
-![Image](images/Bot_Hashtags.png)
+![Image](images/Bot_Hashtags.PNG)
 
 
 #### Topic Modeling
@@ -153,10 +153,10 @@ lda = LatentDirichletAllocation(n_topics=no_topics, max_iter=5,
 ```
 Below are some sample of the topics
 ##### Bot Topics
-![Image](images/Bot_Topics.png)
+![Image](images/Bot_Topics.PNG)
 
 ##### Human Topics
-![Image](images/Human_Topics.png)
+![Image](images/Human_Topics.PNG)
 
 Unfortunately these don't immediately help us analyze the data. In order to do that we would need to relate these topics to a type of master dictionary in hopes of deducing and overall high-level top, for example "politics" or "dating" would be good high-level topics.
 
