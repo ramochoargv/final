@@ -16,7 +16,7 @@ For our one-thousand users, we had a sample size of 227 bot tweets and 9551 huma
 
 After our analysis, we did see that trending hashtags had more positive sentiments than negative. As for topics, there was no statistically significant evidence that bots are more negative or positive. For the bots in our data set, we found average sentiment for the bot topics was -.002, whereas humans averaged .099. This difference is not statistically significant; the standard deviations were approximately .26 and .3 respectively. 
 
-The precision in our models seemed to be effective at finding approxiately the same percentage of bots in our tune and test data as our training data had. A scatter matrix was used to view the data for collinearity to reduce over fitting our data. ROC scores and cross validation scores also showed that our test and training data were very close, showing little signs of overfitting the data. A precision-recall plot could help guide future recall accuracy. 
+The precision in our models seemed to be effective at finding approximately the same percentage of bots in our tune and test data as our training data had. A scatter matrix was used to view the data for collinearity to reduce over fitting our data. ROC scores and cross validation scores also showed that our test and training data were very close, showing little signs of overfitting the data. A precision-recall plot could help guide future recall accuracy. 
 
 
 ## 3. Conclusion & Future Work
