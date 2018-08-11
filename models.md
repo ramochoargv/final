@@ -230,7 +230,7 @@ auc_train = metrics.roc_auc_score(y_train, y_pred_train)
 
 ### 4) Ensemble
 
-We then tried to combine the three methods above, but the end result for accuracy on the test set showed this method to be less than ideal. Its testing score was worse than the tuning scores of the three prevoius models.
+We then tried to combine the three methods above, but the end result for accuracy on the test set showed this method to be less than ideal. Its testing score was worse than the tuning scores of the three previous models.
 
 ```python
 all_models_tune = pd.concat([pd.DataFrame(log_model.predict_proba(X_tune_norm)[:,1]),
