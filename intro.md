@@ -11,8 +11,6 @@ We took our sampling of tweets and compiled the most recent 20 tweets for all us
 
 We then retrieved a botornot score from the botometer api for our 1,000 users.
 
-
-
 ### 2) Description of Raw Data
 
 This data is one row per tweet, though objects such as users, retweets, and quote tweets are nested within a tweet as a dictionary. This is the biggest challenge of this data. It is naturally nested in structure, since a tweet has many objects, and can originate from a retweet, which also has many objects. Most of the data preparation time was spent flattening out the data. 
@@ -75,7 +73,7 @@ We looked at tweets by account age, which generally increased positively togethe
 
 ### 5) Further Data Manipulation 
 
-#### Hashtag tranformation
+#### Hashtag Tranformation
 
 Hashtags were a problem because they are at a lower grain than even the tweet data. We needed a way to summarize hashtag activity by users. The hashtag object came in as many columns, which we unpivoted (using melt) down to a single column. First by user id, and then second by just the hastag itself. In doing this we were able to get a hashtage count, the hashtag senitment, and a hashtag percent popularity (hashtag count divided by count of all hashtags) on a per-user basis. By averaging these in our design matrix, we inherentely created a weighted average hashtag metrics that express how often a user is using hashtags and how popular the hashtags s/he is using are.
 
@@ -111,6 +109,13 @@ Hashtags were a problem because they are at a lower grain than even the tweet da
     user_hash_sum = hashtags_melt.groupby('user_id').agg({'mentions': np.mean, 
                                         'hash_sentiment': np.mean,'hash_percent': np.mean})
 ```
+
+Below is a list of the hashtags most used by bots:
+
+
+![Image](images/Bot_Hashtags.png)
+
+
 #### Topic Modeling
 
 Using the code below we attempted to model topics for both bots and humans.
@@ -146,6 +151,15 @@ nmf = NMF(n_components=no_topics, random_state=1, alpha=.1,
 lda = LatentDirichletAllocation(n_topics=no_topics, max_iter=5, 
             learning_method='online', learning_offset=50.,random_state=0).fit(tf_known)
 ```
+Below are some sample of the topics
+##### Bot Topics
+![Image](images/Bot_Topics.png)
+
+##### Human Topics
+![Image](images/Human_Topics.png)
+
+Unfortunately these don't immediately help us analyze the data. In order to do that we would need to relate these topics to a type of master dictionary in hopes of deducing and overall high-level top, for example "politics" or "dating" would be good high-level topics.
+
 
 ### 6) Standardization
 
