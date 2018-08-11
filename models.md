@@ -2,9 +2,8 @@
 layout: page
 title: Models
 ---
-**Model Preparation and Fitting**
 
-## Model Descriptions
+## Model Preparation and Fitting
 
 Both sentiment anlysis and classification systems were modeled in our study. Twitter data, known bot data, and botometer scores were gathered for analysis. Random Forest, Logistic Regression, AdBoost, and Ensemble models were used in comparison to one another. Training and test scores were plotted and compared for accuracy and overfitting. 
 
