@@ -204,6 +204,7 @@ We analyzed our number of iterations with the chart below, in which you can see 
 ![Image](images/AdaBoost_Iterations.png)
 
 ![Image](images/adaboost_scores.png)
+[Link](images/adaboost_scores.png)
 
 ROC and AUC scores were used in order to view the misclassification rate. 
 
