@@ -10,7 +10,6 @@ For the bots in our data set, we found average sentiment for the bot topics was 
 
 The precision in our models proved to be very effective in finding twitter bots. A scatter matrix was used to view the data for collinearity to reduce over fitting our data. ROC scores and cross validation scores also showed that our test data and out training data were very close and showed little signs of overfitting the data. 
 
-![Image](images/scatter_matrix.png)
 
 ## 3. Conclusion & Future Work
 
