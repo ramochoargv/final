@@ -35,5 +35,5 @@ In this work, it is stated that current bot detection systems focus on precision
 
 This work examines different methods for modeling rare events data using binomial linear regression. It discusses potential remedies such as under sampling, over sampling, penalties, and skewed link functions.
 
->*url - https://lib.ugent.be/fulltxt/RUG01/002/163/708/RUG01-002163708_2014_0001_AC.pdfA |title - A comparison of different >methods for modelling rare events data, author = Faculty of Sciences Department of Applied Mathematics, Computer Science and >Statistics, date - Academic Year 2013 - 2014, website - https://lib.ugent.be/*
+>*url - https://lib.ugent.be/fulltxt/RUG01/002/163/708/RUG01-002163708_2014_0001_AC.pdfA, title - A comparison of different >methods for modelling rare events data, author - Faculty of Sciences Department of Applied Mathematics, Computer Science and >Statistics, date - Academic Year 2013 - 2014, website - https://lib.ugent.be/*
 
