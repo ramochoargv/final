@@ -141,7 +141,6 @@ We analyzed our number of iterations with the chart below, in which you can see 
 
 ![Image](images/adaboost_scores.png)
 
-![Image](images/ada_roc.png)
 
 ### 4) Ensemble
 
