@@ -72,14 +72,14 @@ We branched out and tried some calculations that appeared interesting in our pre
 ![Image](images/Tweets_per_Tweet-Originating_User.png)
 
 
-We looked at tweets by account age, which generally increased positively together as you’d expect. When we looked at the same chart by the total number of retweets a user has of its tweets, we saw some outliers stand out. Therefore we added a feature defined as: a users' tweets' total retweets divided by account age (in days). This can be seen on the chart below, in which each dot represents a user. You can see one user whose account is less that 500 days old, but has had his/her tweets retweeted over 8 million times.
+We looked at tweets by account age, which generally increased positively together as you’d expect. When we looked at the same chart by the total number of retweets a user has of its tweets, we saw some outliers stand out. Therefore, we added a feature defined as: a users' tweets' total retweets divided by account age (in days). This can be seen on the chart below, in which each dot represents a user. You can see one user whose account is less than 500 days old, but has had his/her tweets retweeted over 8 million times.
 
 
 ![Image](images/Total_Retweets_by_Account_Age.png)
 
 ### 4) Further Data Manipulation 
 
-#### Hashtag Tranformation
+#### Hashtag Transformation
 
 Hashtags were a problem because they are at a lower grain than even the tweet data. We needed a way to summarize hashtag activity by users. The hashtag object came in as many columns, which we unpivoted (using melt) down to a single column. First by user id, and then second by just the hastag itself. In doing this we were able to get a hashtage count, the hashtag senitment, and a hashtag percent popularity (hashtag count divided by count of all hashtags) on a per-user basis. By averaging these in our design matrix, we inherentely created a weighted average hashtag metrics that express how often a user is using hashtags and how popular the hashtags s/he is using are.
 
