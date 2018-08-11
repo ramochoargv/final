@@ -1,16 +1,17 @@
----
 layout:page
 title: Results and Conclusion
 ---
 
 ## 1. Summary
 
---let me know if you disagree with this. I'm all for changing it if you had better results
-
-Overall, when we predicted using our models, they did predict bots. However, we are not confident in their accuracy due to the problem of rare successes in this data. The "dumb" model of always classifying as human has better results (97.3%) than our best model (%).
-
 For the bots in our data set, we found average sentiment for the bot topics was -.002, whereas humans averaged .099. Is this difference actually statistically significant? Probably not. The standard deviations are approx .26, .3 respectively. 
 
 ## 2. Results
 
+The precision in our models proved to be very effective in finding twitter bots. A scatter matrix was used to view the data for collinearity to reduce over fitting our data. ROC scores and cross validation scores also showed that our test data and out training data were very close and showed little signs of overfitting the data. 
+
+![Image](images/scatter_matrix.png)
+
 ## 3. Conclusion & Future Work
+
+In this work, we were able to very precisely detect bots. However, work in ensuring recall is equally accurate would be beneficial. 
