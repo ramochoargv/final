@@ -70,7 +70,7 @@ place = data['place'].apply(pd.Series)
 coordinates = data['coordinates'].apply(pd.Series)
 
 ```
-Our largest models contained the per-user featuers below. We counted on regularization to remove multicollinearity.
+Our largest models contained the per-user features below. We counted on regularization to remove multicollinearity.
 
 ```python
 #group all columns by user to get one row per user
