@@ -13,8 +13,7 @@ In our study we were able to find great articles in related works to guide our d
 In this work, a set of large-scale measurements were made on a collection of 500, 000 twitter accounts. Differences were observed in terms of tweet behavior, content, and properties. After measurements were the classification system proposed was based on 4 components. Components in machine learning, entry, account properties, and decisions were used. Experimentation was done to evaluate the accuracy of their system. 
 
 
-url - https://dl.acm.org/citation.cfm?id=1920265&preflayout=flat |  title - Who is tweeting on Twitter: human, bot, or cyborg?
-| author - Zi Chu, Steven Gianvecchio, Haining Wang, Sushil Jajodia | date - December 06 - 10, 2010 | website - https://dl.acm.or
+url - https://dl.acm.org/citation.cfm?id=1920265&preflayout=flat,  title - Who is tweeting on Twitter: human, bot, or cyborg?, author - Zi Chu, Steven Gianvecchio, Haining Wang, Sushil Jajodia, date - December 06 - 10, 2010, website - https://dl.acm.or
 
 # 2. "The DARPA twitter bot challenge"
 
