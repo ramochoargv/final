@@ -5,7 +5,7 @@ title: Models
 
 ## Model Preparation and Fitting
 
-Both sentiment analysis and classification systems were modeled in our study. Twitter data, known bot data, and botometer scores were gathered for analysis. Random Forest, Logistic Regression, AdaBoost, and Ensemble models were used in comparison to one another. Training and test scores were plotted and compared for accuracy and overfitting. 
+Both sentiment analysis and classification systems were modeled in our study. Twitter data, known bot data, and botometer scores were gathered for analysis. Random Forest, Logistic Regression, AdaBoost, and Ensemble models were used in comparison to one another. We used cross validation and GridSearchCV to find ideal model-level parameters. Training and test scores were plotted and compared for accuracy and overfitting. 
 
 ## Data Preparation
 ### Reading and Cleaning Data
@@ -138,21 +138,6 @@ Based on the users we gathered, 2.3% were bots. Our models could guess human 100
 
 Our models will attempt to overcome the problem of our baseline--this data contains very rare successes.
 
-### 0) Logistic Regression
-
-We tried this model three different ways, with our original design matrix, with a standardized design matrix, and with a biased data set to try to offset the rare-success problem, but it never improved.
-
-```python
-kfold = KFold(5, random_state=42, shuffle=True)
-Cs = [.0001, .001, .01, .1, 1, 10, 100, 1000, 10000]
-
-log_model = LogisticRegressionCV(Cs=Cs, cv=kfold, penalty='l2').fit(X_train, y_train)
-```
-
-Logistic Model Train Accuracy: 0.958
-Logistic Model Tune Accuracy: 0.965
-
-
 ### 1) Decision Tree
 
 Many depths were considered in our decision tree classifier.  
@@ -167,7 +152,23 @@ training_scores, testing_scores = validation_curve(DecisionTreeClassifier()
 ```                                            
 ![Image](images/dt_scores.png)
 
-### 2) Random Forest
+
+### 2) Logistic Regression
+
+We tried this model three different ways, with our original design matrix, with a standardized design matrix, and with a biased data set to try to offset the rare-success problem, but it never improved.
+
+```python
+kfold = KFold(5, random_state=42, shuffle=True)
+Cs = [.0001, .001, .01, .1, 1, 10, 100, 1000, 10000]
+
+log_model = LogisticRegressionCV(Cs=Cs, cv=kfold, penalty='l2').fit(X_train, y_train)
+```
+
+Logistic Model Train Accuracy: 0.958
+Logistic Model Tune Accuracy: 0.965
+
+
+### 3) Random Forest
 
 The random forest model worked equally as well as the logistic regression. Thus far it seems like these models are for all intents and purposes, always guessing human.
 
@@ -186,7 +187,7 @@ We took a look at what parameters the model was deeming as important. Followers 
 ![Image](images/RF_Importance.png)
 
 
-### 3) Ada Boost
+### 4) Ada Boost
 
 Ada Boost performed better than the previous two models, but based on the baseline we are working with, it does not seem good enough.
 
@@ -229,7 +230,7 @@ auc_train = metrics.roc_auc_score(y_train, y_pred_train)
 ```
 ![Image](images/ada_roc.png)
 
-### 4) Ensemble
+### 5) Ensemble
 
 We then tried to combine the three methods above, but the end result for accuracy on the test set showed this method to be less than ideal. Its testing score was worse than the tuning scores of the three previous models.
 
