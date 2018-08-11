@@ -29,6 +29,8 @@ We analyzed tweet and retweet quantity, frequency and timing. We looked the stat
 
 We also examined tweets per minute, which we think will be an especially good predictor of bots. Approximately 4% of users had a tweet rate greater than 1 per minute. We briefly looked at the interval between tweets by checking if the time between tweets was on a whole minute. It looked like approximately 1.5% of the users had odd, whole minute timing between tweets.
 
+A scatter matrix was used to view the data for collinearity. 
+
 ![Image](images/scatter_matrix.png)
 
 
