@@ -158,7 +158,7 @@ Below are some sample of the topics
 ##### Human Topics
 ![Image](images/Human_Topics.PNG)
 
-Unfortunately these don't immediately help us analyze the data. In order to do that we would need to relate these topics to a type of master dictionary in hopes of deducing and overall high-level top, for example "politics" or "dating" would be good high-level topics.
+Unfortunately these don't immediately help us analyze the data. In order to do that we would need to relate these topics to a type of master dictionary in hopes of deducing an overall high-level topic, for example "politics" or "dating" would be good high-level topics.
 
 
 ### 6) Standardization
