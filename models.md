@@ -4,11 +4,15 @@ title: Models
 ---
 **Model Preparation and Fitting**
 
+## Model Descriptions
+
+Both sentiment anlysis and classification systems were modeled in our study. Twitter data, known bot data, and botometer scores were gathered for analysis. Random Forest, Logistic Regression, AdBoost, and Ensemble models were used in comparison to one another. Training and test scores were plotted and compared for accuracy and overfitting. 
+
 ## Data Preparation
 ### Reading and Cleaning Data
 
 #### Cleaning Tweets
-First we removed special characters and line returns from our tweets.
+For our sentiment analysis model, first we removed special characters and line returns from our tweets.
 
 ```python
 #clean tweet
@@ -17,6 +21,28 @@ df['cleantweet'] = df['cleantweet'].replace(r'\n',' ', regex=True)
 df['cleantweet'].replace(to_replace=r"(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)", 
     value='',inplace=True,regex=True)
 ```
+
+Undesired classification type columns such as names and text were removed from the classification set. 
+
+```python
+def mod_slick_df(df):
+    # customize table to remove undesirable columns
+    columns = list(df)
+    df = df[[
+     'id',
+     'status_frequency',
+     'statuses_count',
+     'followers_count',
+     'friends_count',
+     'favourites_count',
+     'listed_count',
+     'bot',   
+        ]].copy()
+
+    return df
+
+```
+
 
 Then we add a sentiment score for each tweet.
 
@@ -75,6 +101,8 @@ log_model = LogisticRegressionCV(Cs=Cs, cv=kfold, penalty='l2').fit(X_train, y_t
 Logistic Model Train Accuracy: 0.958
 Logistic Model Tune Accuracy: 0.965
 
+![Image](images/dt_scores.png)
+
 ### 2) Random Forest
 
 The random forest model worked equally as well as the logistic regression. Thus far it seems like these models are for all intents and purposes, always guessing human.
@@ -112,6 +140,8 @@ We analyzed our number of iterations with the chart below, in which you can see 
 ![Image](images/AdaBoost_Iterations.png)
 
 ![Image](images/adaboost_scores.png)
+
+![Image](images/ada_roc.png)
 
 ### 4) Ensemble
 
