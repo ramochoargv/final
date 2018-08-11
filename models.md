@@ -152,7 +152,10 @@ log_model = LogisticRegressionCV(Cs=Cs, cv=kfold, penalty='l2').fit(X_train, y_t
 Logistic Model Train Accuracy: 0.958
 Logistic Model Tune Accuracy: 0.965
 
-Many depths were considered as well. 
+
+### 1) Decision Tree
+
+Many depths were considered in our decision tree classifier.  
 ```python
 training_scores, testing_scores = validation_curve(DecisionTreeClassifier()
                                                    ,X, y, 
