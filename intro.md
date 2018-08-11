@@ -29,6 +29,10 @@ We analyzed tweet and retweet quantity, frequency and timing. We looked the stat
 
 We also examined tweets per minute, which we think will be an especially good predictor of bots. Approximately 4% of users had a tweet rate greater than 1 per minute. We briefly looked at the interval between tweets by checking if the time between tweets was on a whole minute. It looked like approximately 1.5% of the users had odd, whole minute timing between tweets.
 
+![Image](images/scatter_matrix.png)
+
+
+
 #### Hashtags
 We analyzed hashtag topics and topic diversity. Below is a chart showing our top hashtags by sentiment. We see that overall the top hashtags have more positive tweets than negative. We did not find any abnormalities regarding number of hashtags per tweet; there were at max 10, sloping down to 4 or less pretty quickly, and the average was 1.36.
 
