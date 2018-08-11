@@ -112,4 +112,20 @@ We analyzed our number of iterations with the chart below, in which you can see 
 ![Image](images/AdaBoost_Iterations.png)
 
 ![Image](images/adaboost_scores.png)
+
 ### 4) Ensemble
+
+We then tried to combine the three methods above, but the end result for accuracy on the test set showed this method to be less than ideal. Its testing score was worse than the tuning scores of the three prevoius models.
+
+```python
+all_models_tune = pd.concat([pd.DataFrame(log_model.predict_proba(X_tune_norm)[:,1]),
+                    pd.DataFrame(RF_model.predict_proba(X_tune)[:,1]),
+                    pd.DataFrame(boost_model.predict_proba(X_tune)[:,1])],axis=1)
+all_models_test = pd.concat([pd.DataFrame(log_model.predict_proba(X_test_norm)[:,1]),
+                    pd.DataFrame(RF_model.predict_proba(X_test)[:,1]),
+                    pd.DataFrame(boost_model.predict_proba(X_test)[:,1])],axis=1)
+
+ens_log_model = LogisticRegressionCV(Cs=Cs, cv=kfold, penalty='l2').fit(all_models_tune,y_tune)
+```
+Ensemble Logisitic Model Accuracy: 0.9649
+Ensemble Logisitic Model Test Accuracy: 0.9598
