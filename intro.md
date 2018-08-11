@@ -87,7 +87,8 @@ Hashtags were a problem because they are at a lower grain than even the tweet da
     hashtags_melt = hashtags_melt[hashtags_melt['hashtag'].notnull()]
     
     #clean text 
-    hashtags_melt['text'] = hashtags_melt['hashtag'].apply(pd.Series)['text'].str.strip().str.lower()
+    hashtags_melt['text'] = hashtags_melt['hashtag'].apply(pd.Series)
+                                                    ['text'].str.strip().str.lower()
     
     #group by each individual hashtag, count, and rename count column
     hashtags_count = hashtags_melt.groupby('text').agg({'text': 'count'}, as_index=False)
@@ -97,17 +98,21 @@ Hashtags were a problem because they are at a lower grain than even the tweet da
     hashtags_count.reset_index(level=0, inplace=True, drop=False)
     
     #add hashtag sentiment
-    hashtags_count['hash_sentiment'] = [TextBlob(str(row)).sentiment.polarity for row in hashtags_count['text']]
+    hashtags_count['hash_sentiment'] = [TextBlob(str(row)).sentiment
+                    .polarity for row in hashtags_count['text']]
     
     #calculate hashtag's use as percent of total
-    hashtags_count['hash_percent'] = hashtags_count['mentions'] / hashtags_count['mentions'].sum()
+    hashtags_count['hash_percent'] = hashtags_count['mentions'] / 
+                                hashtags_count['mentions'].sum()
     
     #join per hashtag data back to per user data
-    hashtags_melt = hashtags_melt.merge(hashtags_count, left_on='text', right_on='text', how='inner')
+    hashtags_melt = hashtags_melt.merge(hashtags_count, left_on='text', 
+                                    right_on='text', how='inner')
     
-    #aggregate all hashtags for a user, average will result in a weighted average of hashtag stats
+    #aggregate all hashtags for a user, average will result 
+    #in a weighted average of hashtag stats
     user_hash_sum = hashtags_melt.groupby('user_id').agg({'mentions': np.mean, 
-                                        'hash_sentiment': np.mean,'hash_percent': np.mean})
+                          'hash_sentiment': np.mean,'hash_percent': np.mean})
 ```
 
 Below is a list of the hashtags most used by bots:
@@ -128,12 +133,14 @@ def getmatrix(documents: pd.Series):
     no_features = 1000
     
     #NMF
-    tfidf_vectorizer = TfidfVectorizer(max_df=0.95, min_df=2, max_features=no_features, stop_words='english')
+    tfidf_vectorizer = TfidfVectorizer(max_df=0.95, min_df=2, 
+        max_features=no_features, stop_words='english')
     tfidf = tfidf_vectorizer.fit_transform(documents)
     tfidf_feature_names = tfidf_vectorizer.get_feature_names()
 
     #LDA
-    tf_vectorizer = CountVectorizer(max_df=0.95, min_df=2, max_features=no_features, stop_words='english')
+    tf_vectorizer = CountVectorizer(max_df=0.95, min_df=2, 
+        max_features=no_features, stop_words='english')
     tf = tf_vectorizer.fit_transform(documents)
     tf_feature_names = tf_vectorizer.get_feature_names()
     
@@ -141,7 +148,8 @@ def getmatrix(documents: pd.Series):
     
 no_topics = 50
 
-tfidf_known, tfidf_feature_names_known, tf_known, tf_feature_names_known = getmatrix(documents_known)
+tfidf_known, tfidf_feature_names_known, tf_known, 
+    tf_feature_names_known = getmatrix(documents_known)
 
 #NMF
 nmf = NMF(n_components=no_topics, random_state=1, alpha=.1, 
@@ -149,7 +157,7 @@ nmf = NMF(n_components=no_topics, random_state=1, alpha=.1,
 
 #LDA
 lda = LatentDirichletAllocation(n_topics=no_topics, max_iter=5, 
-            learning_method='online', learning_offset=50.,random_state=0).fit(tf_known)
+      learning_method='online', learning_offset=50.,random_state=0).fit(tf_known)
 ```
 Below are some sample of the topics
 ##### Bot Topics
