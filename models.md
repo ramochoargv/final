@@ -8,6 +8,7 @@ title: Models
 Both sentiment analysis and classification systems were modeled in our study. Twitter data, known bot data, and botometer scores were gathered for analysis. Random Forest, Logistic Regression, AdaBoost, and Ensemble models were used in comparison to one another. We used cross validation and GridSearchCV to find ideal model-level parameters. Training and test scores were plotted and compared for accuracy and overfitting. 
 
 ## Data Preparation
+
 ### Reading and Cleaning Data
 
 #### Cleaning Tweets
