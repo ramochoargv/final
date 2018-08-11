@@ -141,6 +141,28 @@ We analyzed our number of iterations with the chart below, in which you can see 
 
 ![Image](images/adaboost_scores.png)
 
+ROC and AUC scores were used in order to view the misclassification rate. 
+
+```python
+# ROC curve 
+pred_train = bdt.predict_proba(X_train)
+pred_test = bdt.predict_proba(X_test)
+
+y_pred_train = []
+y_pred_test = []
+for i in range(len(pred_train)):
+    y_pred_train.append(pred_train[i][1])
+
+for i in range(len(pred_test)):
+    y_pred_test.append(pred_test[i][1])
+    
+fpr_train, tpr_train, _ = roc_curve(y_train, y_pred_train, pos_label=1)
+fpr_test, tpr_test, _ = roc_curve(y_test, y_pred_test, pos_label=1)
+
+auc_test = metrics.roc_auc_score(y_test, y_pred_test)
+auc_train = metrics.roc_auc_score(y_train, y_pred_train)
+```
+![Image](images/ada_roc.png)
 
 ### 4) Ensemble
 
