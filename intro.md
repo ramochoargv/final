@@ -68,8 +68,6 @@ For many elements, we created binary columns to aid our analysis. These include 
 
 In addition, we converted all created dates to date types in order to accommodate duration logic. With these date we create an "Account Age" column, and also a "Tweet Life Days" column, which is the duration between the create of the orignal tweet (the retweet object's created date) and the current tweet.
 
-### 5) Further Data Manipulation 
-
 We branched out and tried some calculations that appeared interesting in our preliminary EDA. First, the count of retweets a user has divided by the number of distinct users that user is retweeting. In our preliminary EDA, we found that in general, the more a user retweets, the more distinct users those tweets originate from. These expected points are represented by the lighter dots where the retweet-to-original-user ratio is near one. However, some accounts stand out because they only ever retweet from one original account, even as their number of retweets increase. This is shown by the y=x line of darker points. This line is clearly diverging from the rest of the data.
 
 
@@ -81,6 +79,44 @@ We looked at tweets by account age, which generally increased positively togethe
 
 ![Image](images/Total_Retweets_by_Account_Age.png)
 
+### 5) Further Data Manipulation 
+
+#### Hashtag tranformation
+
+Hashtags were a problem because they are at a lower grain than even the tweet data. We needed a way to summarize hashtag activity by users. The hashtag object came in as many columns, which we unpivoted (using melt) down to a single column. First by user id, and then second by just the hastag itself. In doing this we were able to get a hashtage count, the hashtag senitment, and a hashtag percent popularity (hashtag count divided by count of all hashtags) on a per-user basis. By averaging these in our design matrix, we inherentely created a weighted average hashtag metrics that express how often a user is using hashtags and how popular the hashtags s/he is using are.
+
+```python
+
+    hashtags['hashtag_count'] = hashtags.count(axis=1)
+    
+    #melt by userid to unpivot the many hashtag columns
+    hashtags_melt = pd.melt(hashtags.iloc[:, hashtags.columns != 'hashtag_count'], 
+                        id_vars = 'user_id',var_name='hashtag_num', value_name='hashtag')
+    hashtags_melt = hashtags_melt[hashtags_melt['hashtag'].notnull()]
+    
+    #clean text 
+    hashtags_melt['text'] = hashtags_melt['hashtag'].apply(pd.Series)['text'].str.strip().str.lower()
+    
+    #group by each individual hashtag, count, and rename count column
+    hashtags_count = hashtags_melt.groupby('text').agg({'text': 'count'}, as_index=False)
+    hashtags_count.columns = ['mentions']
+    
+    #reset the index
+    hashtags_count.reset_index(level=0, inplace=True, drop=False)
+    
+    #add hashtag sentiment
+    hashtags_count['hash_sentiment'] = [TextBlob(str(row)).sentiment.polarity for row in hashtags_count['text']]
+    
+    #calculate hashtag's use as percent of total
+    hashtags_count['hash_percent'] = hashtags_count['mentions'] / hashtags_count['mentions'].sum()
+    
+    #join per hashtag data back to per user data
+    hashtags_melt = hashtags_melt.merge(hashtags_count, left_on='text', right_on='text', how='inner')
+    
+    #aggregate all hashtags for a user, average will result in a weighted average of hashtag stats
+    user_hash_sum = hashtags_melt.groupby('user_id').agg({'mentions': np.mean, 
+                                        'hash_sentiment': np.mean,'hash_percent': np.mean})
+```
 
 ### 6) Standardization
 
