@@ -23,11 +23,11 @@ The precision in our models seemed to be effective at finding approxiately the s
 
 Overall we found that bots are having their voices heard, but we have no evidence to show that they are more successful than humans, nor that they, on average, lean positively or negatively in sentiment.
 
-In our analysis, we were able to predict bots at approximately the percentage we saw in our training data, but we are not confident that the bots we are prediciting is correct. This is because of the rarity of our successes; the models could be inaccurate and still return high-seeming accuracy scores. 
+In our analysis, we were able to predict bots at approximately the percentage we saw in our training data, but we are not confident that the bots we are predicting is correct. This is because of the rarity of our successes; the models could be inaccurate and still return high-seeming accuracy scores. 
 
 For the future, more work needs to be done to better account for the rare event bias. We would also need a better method than overall score to test that our predictions are accurate. And finally, we need to find a way to map our topics to an overall topic so we could group our bots and tweet sentiment by these topics and better analyze influence.
 
-It would also be interesting focus on sentiment-outlier bots specfically (rather than grouping all bots on average). You could bin bots by overall sentiment so you could focus on those highly negative or highly positive bots only. Then you could better try to judge impact of those bots. 
+It would also be interesting focus on sentiment-outlier bots specifically (rather than grouping all bots on average). You could bin bots by overall sentiment so you could focus on those highly negative or highly positive bots only. Then you could better try to judge impact of those bots. 
 
 Ideally, you would have a lot more data with botometer scores than we had. This was due to botometer limitations only. We had collected over 1.6 million tweets, but it took days to score them. This type of analysis would be interesting as an unsupervised learning project, where we would not need to rely on the output others' models in order to train our own.
 
