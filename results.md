@@ -29,6 +29,6 @@ For the future, more work needs to be done to better account for the rare event 
 
 It would also be interesting focus on sentiment-outlier bots specifically (rather than grouping all bots on average). You could bin bots by overall sentiment so you could focus on those highly negative or highly positive bots only. Then you could better try to judge impact of those bots. 
 
-Ideally, you would have a lot more data with botometer scores than we had. This was due to botometer limitations only. We had collected over 1.6 million tweets, but it took days to score them. This type of analysis would be interesting as an unsupervised learning project, where we would not need to rely on the output others' models in order to train our own.
+Ideally, you would have a lot more data with botometer scores than we had. This was due to botometer limitations only. We had collected over 1.6 million tweets, but it took days to score them. This type of analysis would be interesting as an unsupervised learning project, where we would not need to rely on the output of others' models in order to train our own.
 
 
