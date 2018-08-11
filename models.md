@@ -50,7 +50,7 @@ Then we add a sentiment score for each tweet.
 df['sentiment'] = [TextBlob(str(row)).sentiment.polarity for row in df['cleantweet']]
 ```
 
-Most significantly, we had to un-nest any sub-ojects we wanted for a tweet. Each tweet contained a json object with all attributes of the user, retweet, and quote tweet. Each retweet and quote tweet also had user objects. Each tweet (original, retweet, or quote tweet) had entities (which breaks out in hashtags, urls, media), places, and coordinates. We found the places and coordinates to be predominately empty.
+Most significantly, we had to un-nest any sub-objects we wanted for a tweet. Each tweet contained a json object with all attributes of the user, retweet, and quote tweet. Each retweet and quote tweet also had user objects. Each tweet (original, retweet, or quote tweet) had entities (which breaks out in hashtags, urls, media), places, and coordinates. We found the places and coordinates to be predominately empty.
 
 ```python
 #break out nested objects
