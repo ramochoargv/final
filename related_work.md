@@ -4,10 +4,9 @@ title: Literature Review
 ---
 ## Literature Review and Related Works
 
-```markdown
 In our study we were able to find great articles in related works to guide our decision making. The following articles being noteworthy. 
 
-```
+
 # 1. "Who is tweeting on Twitter: human, bot, or cyborg?"
 
 
