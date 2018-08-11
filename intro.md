@@ -12,13 +12,6 @@ We took our sampling of tweets and compiled the most recent 20 tweets for all us
 We then retrieved a botornot score from the botometer api for our 1,000 users.
 
 
-**Bold**
-_Italic_ 
-`Code` text
-```markdown
-Syntax highlighted code block
-
-```
 
 ### 2) Description of Raw Data
 
