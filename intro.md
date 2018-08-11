@@ -177,4 +177,4 @@ Unfortunately, these don't immediately help us analyze the data. In order to do 
 
 ### 5) Standardization
 
-We did standardize the data, but we found it made little difference in our models. Models such as Random Forest are very robust and do not need data to be standardized. Our random forest scores showed to be on very close to our other models.  
+We did standardize the data, but we found it made little difference in our models. Models such as Random Forest are very robust and do not need data to be standardized. Our random forest scores showed to be very close to our other models.  
