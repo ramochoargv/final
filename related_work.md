@@ -32,3 +32,9 @@ In this work, it is stated that current bot detection systems focus on precision
 
 
 url - https://dl.acm.org/citation.cfm?id=3192525 |title - A new approach to bot detection: striking the balance between precision and recall | author - Fred Morstatter, Liang Wu, Tahora H. Nazer, Kathleen M. Carley | date - August 18 - 21, 2016  | website- https://dl.acm.org/
+
+# 4. "A comparison of different methods for modelling rare events data"
+
+url - https://lib.ugent.be/fulltxt/RUG01/002/163/708/RUG01-002163708_2014_0001_AC.pdfA |title - A comparison of different methods for
+modelling rare events data | author = Faculty of Sciences Department of Applied Mathematics, Computer Science and Statistics | date - Academic Year 2013 - 2014 | website - https://lib.ugent.be/
+
