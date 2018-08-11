@@ -22,7 +22,7 @@ A heatmap was produced from our dataframe variables showing spearman correlation
 ![Image](images/heatmap.png)
 [Link](images/heatmap.png)
 
-### 2) Inital Data Analysis
+### 2) Initial Data Analysis
 
 #### Tweets
 We analyzed tweet and retweet quantity, frequency and timing. We looked the status count for a user on a per day basis (based on the age of the account in days). Most users were between 0 and 200, but there were some obvious outliers, with one extreme user who had 1200 per day.
