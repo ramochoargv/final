@@ -1,10 +1,6 @@
 # basic options
 title: CS109 Twitter Bot Project
-author: GitHub User
-email: your-email@domain.com
-description: twitter project site
-twitter_username: jekyllrb
-github_username:  jekyll
+author: Kelsey Landon & Ramirio Ochoa
 
 # Build settings
 markdown: kramdown
